@@ -1,0 +1,6 @@
+2025-11-21 20:46:03,007 - INFO - Mensaje original: Hola EMO-SPN
+2025-11-21 20:46:03,007 - INFO - Cifrado (hex): 3b565e48b64e27ce921427b137e28bbbc2b9cedf945fd546732dd1746c264fea6026ef79a5b58d7c5d6c7783723cfe1b8fd55ee4b29030115bfeb653b4807a62
+2025-11-21 20:46:03,007 - INFO - Descifrado: Hola EMO-SPN
+2025-11-21 20:46:03,008 - INFO - Entropía Shannon: 5.750000 bits
+2025-11-21 20:46:03,008 - INFO - Avalancha: 49.22% diferencia
+2025-11-21 20:46:03,600 - INFO - Grafica de avalancha generada: avalancha.png
