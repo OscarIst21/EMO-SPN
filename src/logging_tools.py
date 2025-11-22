@@ -50,8 +50,12 @@ def avalanche_distance(c1: bytes, c2: bytes):
     for b1, b2 in zip(c1, c2):
         dist += bin(b1 ^ b2).count("1")
 
-    log(f"Avalancha (bits diferentes): {dist}")
-    return dist
+    total_bits = len(c1) * 8
+    percentage = (dist / total_bits) * 100 if total_bits > 0 else 0
+
+    log(f"Avalancha (bits diferentes): {dist} ({percentage:.2f}%)")
+    return dist, percentage
+
 
 # ------------------------------------------
 # GRÁFICO 1: HISTOGRAMA DE BYTES

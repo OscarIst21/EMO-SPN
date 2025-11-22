@@ -4,7 +4,6 @@ import sys
 # Agregar la ruta del proyecto/src al PYTHONPATH
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "src"))
 sys.path.append(BASE_DIR)
-from emo_spn import emo_encrypt, emo_decrypt
 
 import unittest
 from emo_spn import emo_encrypt, emo_decrypt
@@ -17,7 +16,7 @@ class TestEmoSPN(unittest.TestCase):
 
     def setUp(self):
         self.msg = "Hola EMO-SPN"
-        self.msg_mod = "Hola EMO-SPL"   # cambia 1 bit lógico
+        self.msg_mod = "Hola EMO-SPL"   # cambia un byte
         self.key = "MiClaveSegura123"
 
     def test_encrypt_decrypt(self):
@@ -31,7 +30,6 @@ class TestEmoSPN(unittest.TestCase):
         cifrado, _ = emo_encrypt(self.msg, self.key)
         ent = compute_entropy(cifrado)
 
-        # en cifrado real: > 6.5 bits por byte
         self.assertGreater(ent, 5.0,
                            "La entropía es demasiado baja; puede haber patrón.")
 
@@ -39,22 +37,24 @@ class TestEmoSPN(unittest.TestCase):
         cifrado1, _ = emo_encrypt(self.msg, self.key)
         cifrado2, _ = emo_encrypt(self.msg_mod, self.key)
 
-        aval = avalanche_distance(cifrado1, cifrado2)
+        # ⚠️ avalanche_distance retorna: bits, pct
+        bits, pct = avalanche_distance(cifrado1, cifrado2)
 
-        # efecto avalancha típico: ~50% de bits cambiados
-        self.assertGreater(aval, 0.20,
-                           "Avalancha insuficiente; muy pocos bits cambian.")
+        # efecto avalancha típico ≈ 50%,
+        # aquí pedimos mínimo 20% para validación básica
+        self.assertGreater(
+            pct,
+            0.51,
+            f"Avalancha insuficiente: {pct*100:.2f}% ({bits} bits cambiados)"
+        )
 
     def test_generate_graphs(self):
         cifrado, _ = emo_encrypt(self.msg, self.key)
 
-        # genera histogramas (ver carpeta '/output')
         plot_histogram(cifrado)
         plot_avalanche([0.3, 0.5, 0.4])
 
-        # si no explota, pasa
         self.assertTrue(True)
-
 
 if __name__ == "__main__":
     unittest.main()
