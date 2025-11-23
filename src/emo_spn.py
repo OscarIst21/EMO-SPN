@@ -7,7 +7,7 @@ ESCROW_DIR = os.path.abspath("escrow")
 R = 32  # rounds
 BLOCK_SIZE = 16  # bytes (128 bits)
 MASTER_KEY_SIZE = 32  # bytes (256 bits)
-s
+
 def ensure_dirs():
     os.makedirs(SANDBOX_DIR, exist_ok=True)
     os.makedirs(ESCROW_DIR, exist_ok=True)
