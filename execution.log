@@ -6,3 +6,160 @@ Gráfico guardado: avalancha.png
 Avalancha (bits diferentes): 256
 Entropía: 5.6562 bits por byte
 Gráfico guardado: avalancha.png
+Mensaje original: Hola EMO-SPN esta prueba es para ver que tanto cambia si uso una cara triste o feliz :)
+Cifrado (hex): ada4f845cfdcd679cc7797b571408b21207e7026f96d80f7558946a9e43778437c34120e108c3c53f2bc6e0aa3f9089d465d87ef444b2a3b7bdbffc8fe8948ad9aaf32f02b5bfe58149b40ec9448f968aeb378eabc1b593271710f84cd5ab8d8d68f9d666b1674fdfa1fe9990757aa884bb6741d5c76ddb8153bbb3efb14b8406ada7a3cd62f73bc4a45d8532be91f4d
+Descifrado: Hola EMO-SPN esta prueba es para ver que tanto cambia si uso una cara triste o feliz :)
+Tiempo cifrado: 0.005966s | Tamaño: 144 bytes | Throughput: 24.14 KB/s
+Tiempo descifrado: 0.005230s | Tamaño: 144 bytes | Throughput: 27.53 KB/s
+Entropía: 6.7079 bits por byte
+Avalancha (bits diferentes): 591 (51.30%)
+Avalancha total (bits distintos): (591, 51.302083333333336)
+Mensaje original: Hola EMO-SPN esta prueba es para ver que tanto cambia si uso una cara triste o feliz :)
+Cifrado (hex): 6d2126f0edde78f8ad6cb57540f848a29601eb5e85276c697acff66425a0d1478ccf21b4f442cf48bc917e8dc76b246ba0ef25dbe971b91ab4b004639043b00afd3378f67754230ce5a4b4dfb940e4a382a30a83f3a18c1d9e8b8a77a1bb79958942e4408f51bdfddeb79ca99fe9ddcb58424bf38342f07226dca2fa5cf5ea5e927598d304c42a63862d6dbd4bd6fe35
+Descifrado: Hola EMO-SPN esta prueba es para ver que tanto cambia si uso una cara triste o feliz :)
+Tiempo cifrado: 0.005245s | Tamaño: 144 bytes | Throughput: 27.45 KB/s
+Tiempo descifrado: 0.005146s | Tamaño: 144 bytes | Throughput: 27.98 KB/s
+Entropía: 6.5709 bits por byte
+Avalancha (bits diferentes): 551 (47.83%)
+Avalancha total (bits distintos): 551 (47.83%)
+Gráfico guardado: avalancha.png
+Mensaje original: Hola EMO-SPN esta prueba es para ver que tanto cambia si uso una cara triste o feliz :)
+Cifrado (hex): d3f5f6145f16e5263f3b1e4f6f478c86cf4adfeedd0fe68b192e0717642be78b50ddfd85a4c09ff2a6376162f106daa09656d67301d817ac0d92a35ee3fa5b94d4dcaa3ef4287de78a8ab6c957b6269f9339de2d48a0df2117f321cb2c289ad95bdae7e3fcc01d7e0c7ac72f6f327a544a0f981e21d93c5d851a39597276400bcae2b209183ba4d84beb585069bb6f90
+Descifrado: Hola EMO-SPN esta prueba es para ver que tanto cambia si uso una cara triste o feliz :)
+Tiempo cifrado: 0.005270s | Tamaño: 144 bytes | Throughput: 27.32 KB/s
+Tiempo descifrado: 0.005149s | Tamaño: 144 bytes | Throughput: 27.97 KB/s
+Entropía: 6.7045 bits por byte
+Avalancha (bits diferentes): 574 (49.83%)
+Avalancha total (bits distintos): 574 (49.83%)
+Gráfico guardado: avalancha.png
+Mensaje original: Hola EMO-SPN esta prueba es para ver que tanto cambia si uso una cara triste o feliz :)
+Cifrado (hex): c20df3bb9419f65c5cf1ec5e44ca27ddb5c605083feb53f6a469b73b2cf81c830abfa429beb5fd0934563548b499a44c8aab29488144eabdbad65107f8e7efd8fa0c2b5373377e3ed365318880594e7b60d4338aaeaf0f44cd236e3f934bf683cfda7b9b02f037665a4bf3956aae430864435aac876c58a55907e69adcb86eafb0cc92c72b39088bf64981bf1ceaff74
+Descifrado: Hola EMO-SPN esta prueba es para ver que tanto cambia si uso una cara triste o feliz :)
+Tiempo cifrado: 0.010044s | Tamaño: 144 bytes | Throughput: 14.34 KB/s
+Tiempo descifrado: 0.009566s | Tamaño: 144 bytes | Throughput: 15.05 KB/s
+Entropía: 6.6681 bits por byte
+Avalancha (bits diferentes): 602 (52.26%)
+Avalancha total (bits distintos): 602 (52.26%)
+Gráfico guardado: avalancha.png
+Entropía: 6.0281 bits por byte
+Entropía: 6.5233 bits por byte
+Entropía: 7.3322 bits por byte
+Entropía: 7.8650 bits por byte
+Entropía: 7.9544 bits por byte
+Gráfico guardado: perf_entropy.png
+Mensaje original: Hola EMO-SPN esta prueba es para ver que tanto cambia si uso una cara triste o feliz :)
+Cifrado (hex): bd39ad0c52e8f97029e8c1819977f476e113e4a68e33c5a289135e54c353c9cd70ff9cc5b4d79d55ea0b9d4dd4a84d5b2d06560ecb2bc5703b316310569b82f2928491d2f69f39f43398aa5a6f2bcbda5b139d3b899df2f4d9b735f4cb9805f68a3bb32e8d99d4fa1d00f94b21b318c61edd5c88266822cc31637abae482a351dc8d0c9018be21729af0a3b5d39d110b
+Descifrado: Hola EMO-SPN esta prueba es para ver que tanto cambia si uso una cara triste o feliz :)
+Tiempo cifrado: 0.005188s | Tamaño: 144 bytes | Throughput: 27.76 KB/s
+Tiempo descifrado: 0.005120s | Tamaño: 144 bytes | Throughput: 28.12 KB/s
+Entropía: 6.5214 bits por byte
+Avalancha (bits diferentes): 578 (50.17%)
+Avalancha total (bits distintos): 578 (50.17%)
+Gráfico guardado: avalancha.png
+Entropía: 5.9531 bits por byte
+Entropía: 6.4677 bits por byte
+Entropía: 7.2597 bits por byte
+Entropía: 7.8432 bits por byte
+Entropía: 7.9557 bits por byte
+Gráfico guardado: perf_entropy.png
+Mensaje original: Hola EMO-SPN esta prueba es para ver que tanto cambia si uso una cara triste o feliz :)
+Cifrado (hex): d08b9830bad53228d075c716e60ee61dd47ebdb0e3fc79fcad125f642ec12b1c440a0a0ce0e6caea53591fd180bd1a02dc3cc4e45c300989eb47a3bd7e6fda290f1d0a3ce04eb2092176498d4d9e210341b4c8296d4ab8af81d2a8875bcbdb0d672c98bf0bde4f58d141d23ae63458e676bf7f5f9493397ff60efb5e7e374eb9d7ba461902c58698a8c34918da4a00e1
+Descifrado: Hola EMO-SPN esta prueba es para ver que tanto cambia si uso una cara triste o feliz :)
+Tiempo cifrado: 0.005270s | Tamaño: 144 bytes | Throughput: 27.32 KB/s
+Tiempo descifrado: 0.005206s | Tamaño: 144 bytes | Throughput: 27.66 KB/s
+Entropía: 6.6100 bits por byte
+Avalancha (bits diferentes): 591 (51.30%)
+Avalancha total (bits distintos): 591 (51.30%)
+Gráfico guardado: avalancha.png
+Entropía: 6.0375 bits por byte
+Entropía: 6.6445 bits por byte
+Entropía: 7.2806 bits por byte
+Entropía: 7.7952 bits por byte
+Entropía: 7.9527 bits por byte
+Entropía: 6.6100 bits por byte
+Entropía del texto cifrado (archivo completo): 6.6100 bits/byte
+
+Entropía por bloque:
+Entropía: 3.8750 bits por byte
+  - Bloque 1: 3.8750
+Entropía: 3.8750 bits por byte
+  - Bloque 2: 3.8750
+Entropía: 4.0000 bits por byte
+  - Bloque 3: 4.0000
+Entropía: 3.8750 bits por byte
+  - Bloque 4: 3.8750
+Entropía: 4.0000 bits por byte
+  - Bloque 5: 4.0000
+Gráfico guardado: perf_entropy.png
+Mensaje original: Hola EMO-SPN esta prueba es para ver que tanto cambia si uso una cara triste o feliz :)
+Cifrado (hex): 65f724a591073084ae8d596379696b627886d83864bf40fdcc536f03f134d7b7b659f69d4cdcd48002d47d019dd324d5ce699b1243e4b93ce06e0d691e9a7235e23703a6297fc37dbeb0f13feaea3cc0351185592eddbd5693689514a8659c7a175dbce08e260ad9a98757b080ab48905b0c4cea760c15e7aaf8372a0038a2f3e101fb2a726a8259602408858a47a16b
+Descifrado: Hola EMO-SPN esta prueba es para ver que tanto cambia si uso una cara triste o feliz :)
+Tiempo cifrado: 0.005189s | Tamaño: 144 bytes | Throughput: 27.75 KB/s
+Tiempo descifrado: 0.005129s | Tamaño: 144 bytes | Throughput: 28.08 KB/s
+Entropía: 6.7375 bits por byte
+Avalancha (bits diferentes): 553 (48.00%)
+Avalancha total (bits distintos): 553 (48.00%)
+Gráfico guardado: avalancha.png
+Entropía: 5.9686 bits por byte
+Entropía: 6.5330 bits por byte
+Entropía: 7.3228 bits por byte
+Entropía: 7.8329 bits por byte
+Entropía: 7.9587 bits por byte
+Entropía del texto cifrado (archivo completo): 6.7375 bits/byte
+
+Entropía por bloque:
+  - Bloque 1: 4.0000
+  - Bloque 2: 3.7500
+  - Bloque 3: 3.8750
+  - Bloque 4: 3.8750
+  - Bloque 5: 4.0000
+Gráfico guardado: perf_entropy.png
+Entropía del texto cifrado (archivo completo): 6.6403 bits/byte
+
+Entropía por bloque:
+  - Bloque 1: 3.8750
+  - Bloque 2: 4.0000
+  - Bloque 3: 3.7500
+  - Bloque 4: 4.0000
+  - Bloque 5: 3.8750
+Gráfico guardado: perf_entropy.png
+Mensaje original: Hola EMO-SPN esta prueba es para ver que tanto cambia si uso una cara triste o feliz :)
+Cifrado (hex): 129ecfaa1280363caf890acc4bcc780b15f13eacd482c1cdb613420ba7a24c602cb68266ada7a64870a6535aa7f630d42f2b8a77fca7c491b032ea5818674b7f2ca9fe364f9570ace3ad4e615e23fabefdee25ffa0f7255b53fe3e8d25f20252392625f77cee379c4af334849e36b5194af881aaadff412e4ca40d28ac63fafe0ed9d15047c24652f3f7f94018a42617
+Descifrado: Hola EMO-SPN esta prueba es para ver que tanto cambia si uso una cara triste o feliz :)
+Tiempo cifrado: 0.005109s | Tamaño: 144 bytes | Throughput: 28.18 KB/s
+Tiempo descifrado: 0.005227s | Tamaño: 144 bytes | Throughput: 27.55 KB/s
+Entropía: 6.5604 bits por byte
+Avalancha (bits diferentes): 554 (48.09%)
+Avalancha total (bits distintos): 554 (48.09%)
+Gráfico guardado: avalancha.png
+Entropía: 6.0531 bits por byte
+Entropía: 6.6504 bits por byte
+Entropía: 7.3633 bits por byte
+Entropía: 7.8019 bits por byte
+Entropía: 7.9562 bits por byte
+Entropía del texto cifrado (archivo completo): 6.5604 bits/byte
+
+Entropía por bloque:
+  - Bloque 1: 4.0000
+  - Bloque 2: 3.7500
+  - Bloque 3: 4.0000
+  - Bloque 4: 4.0000
+  - Bloque 5: 3.7028
+Gráfico guardado: perf_entropy.png
+Mensaje original: Hola EMO-SPN esta prueba es para ver que tanto cambia si uso una cara triste o feliz :)
+Cifrado (hex): 459ff2bfe68394dfda793c229cda261b4065860b3200f01b05f37de6d99b9c30adf246d7d872ab9c04fe4b4811bccc6aee0ba9787e51121305e5c48a6eaaa76dacb1f4bafe4e8680711a9024a94f31c19f26cb4b33813d603fae5c43ce53c870e78b76c4174341ae29114c08b458d9082ff53ec31bae0aab6eba01cef9f4bc180eb8a38cb788ad7a79d4165562000865
+Descifrado: Hola EMO-SPN esta prueba es para ver que tanto cambia si uso una cara triste o feliz :)
+Tiempo cifrado: 0.005194s | Tamaño: 144 bytes | Throughput: 27.72 KB/s
+Tiempo descifrado: 0.005155s | Tamaño: 144 bytes | Throughput: 27.93 KB/s
+Avalancha (bits diferentes): 604 (52.43%)
+Avalancha total (bits distintos): 604 (52.43%)
+Gráfico guardado: avalancha.png
+Gráfico guardado: perf_entropy.png
+Entropía del texto cifrado (archivo completo): 6.6906 bits/byte
+
+Entropía por bloque:
+  - Bloque 1: 4.0000
+  - Bloque 2: 4.0000
+  - Bloque 3: 4.0000
+  - Bloque 4: 4.0000
+  - Bloque 5: 4.0000

@@ -5,172 +5,79 @@ Oscar López, Hannia Tsui, Zanhia Lucero
 
 Materia: Criptografía
 Universidad Autónoma de Baja California Sur
-⭐ 1. Introducción
 
-El proyecto EMO-SPN implementa un algoritmo criptográfico basado en el modelo clásico Substitution-Permutation Network (SPN), integrando además una variante de sustitución inspirada en emojis y transformaciones no lineales para incrementar la confusión y difusión del mensaje.
+Objetivo: Cifrado de bloques de 128 bits con 20 rondas, clave maestra de 256 bits, modo CBC y HMAC-SHA256 para integridad.
 
-El objetivo del proyecto es comprender y aplicar conceptos fundamentales de criptografía moderna, entre ellos:
+Requisitos
+- Python 3.10+ (probado en 3.13)
+- Paquetes: matplotlib , numpy
+- Instalación: pip install matplotlib numpy
 
-Cifrado por bloques
+Estructura
+- src/emo_spn.py : núcleo del cifrado, CLI de archivos, API programática
+- src/emo.py : CLI para cifrado/descifrado de mensajes y ejecución de tests
+- src/logging_tools.py : métricas y gráficos
+- src/sandbox/ : zona segura para archivos de prueba
+- escrow/recovery.enc : sobre de recuperación de clave generado por init
+- tests/test_emospn.py : tests unitarios
 
-Sustitución (S-Box)
+Uso Rápido (API Programática)
+- Cifrar: cipher, t = emo_encrypt("Hola EMO-SPN", "MiClaveSegura123")
+- Descifrar: plain, t = emo_decrypt(cipher, "MiClaveSegura123")
+- Formato de cipher : IV(16) || C || TAG(32) con HMAC-SHA256 sobre IV || C usando la clave maestra derivada de la passphrase
 
-Permutación (P-Layer)
+CLI de Mensajes
+- Ubicación: src/emo.py
+- Cifrar: python src/emo.py encrypt --msg "Hola EMO-SPN" --key "MiClaveSegura123"
+- Descifrar: python src/emo.py decrypt --msg "<hex_del_cipher>" --key "MiClaveSegura123"
+- Tests: python src/emo.py test
 
-Expansión de clave
+CLI de Archivos y Escrow
+- Ubicación: src/emo_spn.py
+- Inicializar: python src/emo_spn.py init -p "MiPassphrase"
+  - Genera escrow/recovery.enc y sandbox/key.bin.enc
+- Cifrar archivo: python src/emo_spn.py encrypt sandbox/sample.txt sandbox/sample.enc -p "MiPassphrase"
+- Descifrar archivo: python src/emo_spn.py decrypt sandbox/sample.enc sandbox/sample.dec.txt -p "MiPassphrase"
+- Notas:
+  - Las rutas deben estar bajo src/sandbox/ por seguridad
+  - El formato del archivo cifrado es IV || C || TAG
+  - La passphrase destraba el escrow que contiene la clave maestra ofuscada
 
-Métricas criptográficas (entropía, efecto avalancha, histogramas)
+Pruebas
+- Unitarias: python -m unittest -v tests/test_emospn.py
+  - Verifica cifrado/descifrado, entropía y avalancha
+- Script de métricas: python src/test.py
+  - Genera tiempos, gráficos y logs en execution.log
 
-Medición de desempeño
+Salida y Métricas
+- Logs: execution.log
+- Gráficos: histograma.png , avalancha.png
+- Métricas:
+  - Entropía (Shannon) del ciphertext
+  - Avalancha (bits diferentes y porcentaje)
+  - Tiempos de cifrado y descifrado con throughput
 
-⭐ 2. Objetivo del Proyecto
+Detalles Criptográficos
+- SPN 20 rondas: SubBytes con S-box derivada por clave, P-layer permutación de bits, AddRoundKey
+- Modo CBC con IV aleatorio
+- HMAC-SHA256 para autenticidad del ciphertext
+- Derivación interna de componentes con PRNG XORShift64 sembrado por SHA-256(master_key||label)
 
-Implementar un cifrador por bloques basado en SPN.
+Qué esperar
+- Ciphertexts diferentes para mismo mensaje por IV aleatorio
+- Entropía alta del cipher (~6.5+ bits/byte)
+- Avalancha cercana al 50% de bits cambiados entre mensajes similares
 
-Evaluar el algoritmo utilizando entropía, histograma y efecto avalancha.
-
-Realizar pruebas completas de cifrado/descifrado.
-
-Integrar un sistema de logs y medición de tiempo para evaluar desempeño.
-
-Generar estructuras y funciones modulares que permitan análisis criptográfico.
-
-⭐ 3. Arquitectura del Algoritmo EMO-SPN
-
-El algoritmo sigue una secuencia clásica:
-
-Entrada del mensaje → se transforma a bloques de bytes.
-
-S-Box EMO → tabla no lineal personalizada.
-
-P-Layer → permutación bit a bit para generar difusión.
-
-Rondas SPN → cada ronda aplica:
-
-XOR con subclave
-
-Sustitución (S-Box)
-
-Permutación (P-Layer)
-
-Ronda final
-
-Salida del cifrado
-
-⭐ 4. Diagrama del Algoritmo EMO-SPN
-
-A continuación, el diagrama solicitado (generado por mí, listo para usar):
-
-                     ┌──────────────────┐
-                     │  Mensaje (Texto) │
-                     └─────────┬────────┘
-                               │
-                               ▼
-                   ┌────────────────────┐
-                   │ Conversión a Bytes │
-                   └─────────┬──────────┘
-                             │
-                Bloques de 16 bytes
-                             │
-                             ▼
-             ┌────────────────────────────┐
-             │    Ronda 1 a N (SPN)       │
-             │  ┌──────────────────────┐  │
-             │  │ XOR con Subclave     │  │
-             │  ├──────────────────────┤  │
-             │  │ Sustitución (S-Box)  │  │
-             │  ├──────────────────────┤  │
-             │  │ Permutación (P-Layer)│  │
-             │  └──────────────────────┘  │
-             └───────────┬────────────────┘
-                         │
-                         ▼
-           ┌─────────────────────────┐
-           │ Ronda Final (XOR Key)   │
-           └──────────┬──────────────┘
-                      │
-                      ▼
-             ┌──────────────────┐
-             │ Cifrado (Bytes)  │
-             └──────────────────┘
-
-⭐ 5. Funcionalidades Principales
-✔ Cifrado y Descifrado
-
-Funciones: emo_encrypt() y emo_decrypt()
-
-Basado completamente en SPN con S-Boxes personalizadas.
-
-✔ Medición de Tiempo
-
-Evaluación del rendimiento con measure_time.
-
-✔ Registro en Consola
-
-Con la función log() para depuración y análisis.
-
-✔ Entropía del Cifrado
-
-Se calcula la entropía Shannon del texto cifrado.
-
-✔ Efecto Avalancha
-
-Se compara el resultado del cifrado al modificar 1 bit del mensaje original.
-
-✔ Gráficos Automáticos
-
-Histograma de distribución de bytes cifrados.
-
-Gráfica del efecto avalancha.
-
-⭐ 6. Estructura del Proyecto
-Emo-codigo_v2/
-│
-├── src/
-│   ├── emo_spn.py          # Implementación del cifrador EMO-SPN
-│   ├── logging_tools.py    # Logs, métricas y gráficos
-│   ├── test.py             # Script principal de pruebas
-│
-├── README.md               # Este archivo
-└── requirements.txt        # Dependencias
-
-⭐ 7. Instrucciones de Uso
-1️⃣ Ejecutar pruebas
-python src/test.py
-
-2️⃣ Instalar dependencias
-pip install -r requirements.txt
-
-3️⃣ Modificar mensaje o clave
-
-En test.py:
-
-mensaje = "Hola EMO-SPN"
-clave = "MiClaveSegura123"
-
-⭐ 8. Resultados Esperados
-
-El descifrado debe coincidir exactamente con el mensaje original.
-
-El histograma debe mostrar una distribución uniforme (indicador de buena confusión).
-
-El efecto avalancha debe generar cambios significativos (>40%).
-
-La entropía debe acercarse a valores altos (≈7–8 bits).
-
-⭐ 9. Conclusiones
-
-El algoritmo EMO-SPN implementado ofrece una visión clara del funcionamiento de una red de sustitución-permutación y permite experimentar con conceptos fundamentales de criptografía moderna.
-También proporciona herramientas de evaluación que ayudan a medir la seguridad y calidad del cifrado, como entropía, distribución de valores y efecto avalancha.
-
-Se trata de un proyecto educativo diseñado para comprender los pilares de los cifradores por bloques y los principios de confusión y difusión introducidos por Claude Shannon.
-
-⭐ 10. Créditos
-
-Autores:
-
-Oscar López
-
-Hannia Tsui
-
-Zanhãia Lucero
+Ejemplos
+- Generar clave y cifrar archivo de sandbox:
+  - python src/emo_spn.py init -p "MiPassphrase"
+  - python src/emo_spn.py encrypt sandbox/sample.txt sandbox/sample.enc -p "MiPassphrase"
+  - python src/emo_spn.py decrypt sandbox/sample.enc sandbox/sample.dec.txt -p "MiPassphrase"
+  
+Ubicaciones clave del código
+- SPN cifrado por bloque: src/emo_spn.py:110-116
+- SPN descifrado por bloque: src/emo_spn.py:118-125
+- CBC archivos: src/emo_spn.py:167-175 y src/emo_spn.py:193-201
+- API cifrado/descifrado: src/emo_spn.py:347-383 , src/emo_spn.py:386-424
+- Métrica avalancha: src/logging_tools.py:48-57
+- Prueba script con tiempos: src/test.py actualizado
